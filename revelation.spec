@@ -48,10 +48,10 @@ w postaci drzewa, a dane przechowuje w zakodowanych plikach XML.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=${RPM_BUILD_ROOT} 
+	DESTDIR=$RPM_BUILD_ROOT
 
-mkdir -p $RPM_BUILD_ROOT/%{py_sitedir} 
-mv $RPM_BUILD_ROOT/usr/share/python*/site-packages/* $RPM_BUILD_ROOT/%{py_sitedir}
+install -d $RPM_BUILD_ROOT%{py_sitedir} 
+mv $RPM_BUILD_ROOT/usr/share/python*/site-packages/* $RPM_BUILD_ROOT%{py_sitedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
