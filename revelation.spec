@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 Summary:	A password manager for the GNOME 2 desktop
 Summary(pl):	Zarz±dca hase³ dla ¶rodowiska GNOME 2
 Name:		revelation
