@@ -1,12 +1,12 @@
 Summary:	A password manager for the GNOME 2 desktop
 Summary(pl):	Zarz±dca hase³ dla ¶rodowiska GNOME 2
 Name:		revelation
-Version:	0.3.2
+Version:	0.3.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://oss.codepoet.no/revelation/%{name}-%{version}.tar.bz2
-# Source0-md5:	a74d591f74c7d85f70d7c27740958e06
+# Source0-md5:	769ecebe334ff653ceec5a5822674be6
 URL:		http://oss.codepoet.no/revelation/
 BuildRequires:	python-Crypto >= 1.9
 BuildRequires:	python-gnome >= 2.0.0
