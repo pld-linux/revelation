@@ -2,23 +2,25 @@
 Summary:	A password manager for the GNOME 2 desktop
 Summary(pl):	Zarz±dca hase³ dla ¶rodowiska GNOME 2
 Name:		revelation
-Version:	0.2.1
+Version:	0.3.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://oss.wired-networks.net/%{name}/%{name}-%{version}.tar.bz2
-# Source0-md5:	8c0a25a61a9a5d7502c62b9ec6f7c261
+# Source0-md5:	f5dac3c4639b43fca0060804ccef3346
 URL:		http://oss.wired-networks.net/revelation/
-BuildRequires:	python-Crypto
-BuildRequires:	python-gnome
-BuildRequires:	python-gnome-ui
-BuildRequires:	python-libxml2
-BuildRequires:	python-pygtk-devel >= 2.0
-Requires:	python-Crypto
-Requires:	python-gnome
-Requires:	python-gnome-ui
-Requires:	python-libxml2
-Requires:	python-pygtk-devel >= 2.0
+BuildRequires:	python-Crypto >= 1.9
+BuildRequires:	python-gnome >= 2.0.0
+BuildRequires:	python-gnome-ui >= 2.0.0
+BuildRequires:	python-libxml2 >= 2.0.0
+BuildRequires:	python-pygtk-devel >= 2.0.0
+Requires(post):	GConf2
+Requires:	python-Crypto >= 1.9
+Requires:	python-gnome >= 2.0.0
+Requires:	python-gnome-gconf >= 2.0.0
+Requires:	python-gnome-ui >= 2.0.0
+Requires:	python-libxml2 >= 2.0.0
+Requires:	python-pygtk-devel >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,6 +47,9 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%gconf_schema_install
+
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
@@ -54,3 +59,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*.png
 %dir %{py_sitedir}/%{name}
 %{py_sitedir}/%{name}/*.py[oc]
+%{_sysconfdir}/gconf/schemas/*.schemas
