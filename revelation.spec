@@ -9,6 +9,7 @@ Source0:	ftp://oss.codepoet.no/revelation/%{name}-%{version}.tar.bz2
 # Source0-md5:	80c36c740c5e02da54f77da69800325a
 Patch0:		%{name}-desktop.patch
 URL:		http://oss.codepoet.no/revelation/
+BuildRequires:	cracklib-devel
 BuildRequires:	python-Crypto >= 1.9
 BuildRequires:	python-gnome >= 2.0.0
 BuildRequires:	python-gnome-ui >= 2.0.0
