@@ -2,12 +2,12 @@
 Summary:	A password manager for the GNOME 2 desktop
 Summary(pl):	Zarz±dca hase³ dla ¶rodowiska GNOME 2
 Name:		revelation
-Version:	0.1.2
+Version:	0.2.1
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	ftp://oss.wired-networks.net/revelation/%{name}-%{version}.tar.bz2
-# Source0-md5:	a724b08a38e065dff359235e366b2c9b
+Source0:	ftp://oss.wired-networks.net/%{name}/%{name}-%{version}.tar.bz2
+# Source0-md5:	8c0a25a61a9a5d7502c62b9ec6f7c261
 URL:		http://oss.wired-networks.net/revelation/
 BuildRequires:	python-Crypto
 BuildRequires:	python-gnome
@@ -35,17 +35,12 @@ w postaci drzewa, a dane przechowuje w zakodowanych plikach XML.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_desktopdir},%{_pixmapsdir}} \
-	$RPM_BUILD_ROOT{%{_datadir}/%{name}/pixmaps,%{py_sitedir}/%{name}}
 
-install src/revelation $RPM_BUILD_ROOT%{_bindir}
-install pixmaps/%{name}.png $RPM_BUILD_ROOT%{_pixmapsdir}
-install pixmaps/*.png $RPM_BUILD_ROOT%{_datadir}/%{name}/pixmaps
-install gnome/%{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
-install src/lib/*.py $RPM_BUILD_ROOT%{py_sitedir}/%{name}
-
-%py_comp $RPM_BUILD_ROOT%{py_sitedir}/%{name}
-%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}/%{name}
+%{__python} setup.py install \
+	--root=${RPM_BUILD_ROOT} \
+	--prefix=%{_prefix} \
+	--install-purelib=%{py_sitedir} \
+	-O2
 
 %clean
 rm -rf $RPM_BUILD_ROOT
