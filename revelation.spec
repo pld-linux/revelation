@@ -58,6 +58,7 @@ mv $RPM_BUILD_ROOT/usr/share/python*/site-packages/* $RPM_BUILD_ROOT%{py_sitedir
 rm -rf $RPM_BUILD_ROOT
 
 %post
+umask 022
 %gconf_schema_install %{_sysconfdir}/gconf/schemas/revelation.schemas
 /usr/bin/update-desktop-database
 /usr/bin/update-mime-database %{_datadir}/mime
@@ -69,6 +70,7 @@ fi
 
 %postun
 if [ $1 = 0 ]; then
+	umask 022
 	/usr/bin/update-desktop-database
 	/usr/bin/update-mime-database %{_datadir}/mime
 fi
