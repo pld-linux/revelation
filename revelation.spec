@@ -59,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 %post
 %gconf_schema_install %{_sysconfdir}/gconf/schemas/revelation.schemas
 /usr/bin/update-desktop-database
-/usr/bin/update-mime-database
+/usr/bin/update-mime-database %{_datadir}/mime
 
 %preun
 if [ $1 = 0 ]; then
@@ -69,7 +69,7 @@ fi
 %postun
 if [ $1 = 0 ]; then
 	/usr/bin/update-desktop-database
-	/usr/bin/update-mime-database
+	/usr/bin/update-mime-database %{_datadir}/mime
 fi
 
 %files
