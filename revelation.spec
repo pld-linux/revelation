@@ -1,12 +1,12 @@
 Summary:	A password manager for the GNOME 2 desktop
 Summary(pl):	Zarz±dca hase³ dla ¶rodowiska GNOME 2
 Name:		revelation
-Version:	0.4.2
+Version:	0.4.3
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://oss.codepoet.no/revelation/%{name}-%{version}.tar.bz2
-# Source0-md5:	a2e58904072a58473245037976cca569
+# Source0-md5:	80c36c740c5e02da54f77da69800325a
 Patch0:		%{name}-desktop.patch
 URL:		http://oss.codepoet.no/revelation/
 BuildRequires:	python-Crypto >= 1.9
@@ -37,16 +37,17 @@ w postaci drzewa, a dane przechowuje w zakodowanych plikach XML.
 #%patch0 -p1
 
 %build
-%configure
+%configure \
+	--disable-schemas-install \
+	--disable-desktop-update \
+	--disable-mime-update
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=${RPM_BUILD_ROOT} \
-	UPDATE_DESKTOP_DATABASE=/bin/true \
-	UPDATE_MIME_DATABASE=/bin/true
+	DESTDIR=${RPM_BUILD_ROOT} 
 
 mkdir -p $RPM_BUILD_ROOT/%{py_sitedir} 
 mv $RPM_BUILD_ROOT/usr/share/python*/site-packages/* $RPM_BUILD_ROOT/%{py_sitedir}
@@ -55,7 +56,20 @@ mv $RPM_BUILD_ROOT/usr/share/python*/site-packages/* $RPM_BUILD_ROOT/%{py_sitedi
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%gconf_schema_install
+%gconf_schema_install %{_sysconfdir}/gconf/schemas/revelation.schemas
+/usr/bin/update-desktop-database
+/usr/bin/update-mime-database
+
+%preun
+if [ $1 = 0 ]; then
+	%gconf_schema_uninstall %{_sysconfdir}/gconf/schemas/revelation.schemas
+fi
+
+%postun
+if [ $1 = 0 ]; then
+	/usr/bin/update-desktop-database
+	/usr/bin/update-mime-database
+fi
 
 %files
 %defattr(644,root,root,755)
@@ -68,6 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/32x32/apps/*.png
 %{_iconsdir}/hicolor/48x48/apps/*.png
 %{_iconsdir}/hicolor/48x48/mimetypes/*.png
+%{_iconsdir}/hicolor/scalable/filesystems/*.svg
 %{_datadir}/mime/packages/revelation.xml
 %dir %{py_sitedir}/%{name}
 %dir %{py_sitedir}/%{name}/datahandler
