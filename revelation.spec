@@ -2,7 +2,7 @@ Summary:	A password manager for the GNOME 2 desktop
 Summary(pl):	Zarz±dca hase³ dla ¶rodowiska GNOME 2
 Name:		revelation
 Version:	0.4.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://oss.codepoet.no/revelation/%{name}-%{version}.tar.bz2
@@ -16,7 +16,9 @@ BuildRequires:	python-gnome-ui >= 2.0.0
 BuildRequires:	python-libxml2 >= 2.0.0
 BuildRequires:	python-pygtk-devel >= 2.0.0
 BuildRequires:	rpmbuild(macros) >= 1.196
-Requires(post):	GConf2
+Requires(post,preun):	GConf2
+Requires(post,postun):	desktop-file-utils
+Requires(post,postun):	shared-mime-info
 Requires:	python-Crypto >= 1.9
 Requires:	python-gnome >= 2.0.0
 Requires:	python-gnome-gconf >= 2.0.0
@@ -36,7 +38,7 @@ w postaci drzewa, a dane przechowuje w zakodowanych plikach XML.
 
 %prep
 %setup -q
-#%patch0 -p1
+%patch0 -p1
 
 %build
 %configure \
@@ -58,20 +60,18 @@ mv $RPM_BUILD_ROOT/usr/share/python*/site-packages/* $RPM_BUILD_ROOT%{py_sitedir
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%gconf_schema_install revelation.schemas
+%update_desktop_database_post
 umask 022
-%gconf_schema_install %{_sysconfdir}/gconf/schemas/revelation.schemas
-/usr/bin/update-desktop-database
 /usr/bin/update-mime-database %{_datadir}/mime
 
 %preun
-if [ $1 = 0 ]; then
-	%gconf_schema_uninstall %{_sysconfdir}/gconf/schemas/revelation.schemas
-fi
+%gconf_schema_uninstall revelation.schemas
 
 %postun
+%update_desktop_database_postun
 if [ $1 = 0 ]; then
 	umask 022
-	/usr/bin/update-desktop-database
 	/usr/bin/update-mime-database %{_datadir}/mime
 fi
 
