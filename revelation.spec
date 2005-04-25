@@ -15,7 +15,7 @@ BuildRequires:	python-gnome >= 2.0.0
 BuildRequires:	python-gnome-ui >= 2.0.0
 BuildRequires:	python-libxml2 >= 2.0.0
 BuildRequires:	python-pygtk-devel >= 2.0.0
-BuildRequires:	rpmbuild(macros) >= 1.196
+BuildRequires:	rpmbuild(macros) >= 1.197
 Requires(post,preun):	GConf2
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	shared-mime-info
