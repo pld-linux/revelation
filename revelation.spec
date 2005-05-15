@@ -63,7 +63,7 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_install revelation.schemas
 %update_desktop_database_post
 umask 022
-/usr/bin/update-mime-database %{_datadir}/mime
+/usr/bin/update-mime-database %{_datadir}/mime ||:
 
 %preun
 %gconf_schema_uninstall revelation.schemas
