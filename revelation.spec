@@ -11,7 +11,7 @@ Patch0:		%{name}-desktop.patch
 URL:		http://oss.codepoet.no/revelation/
 BuildRequires:	cracklib-devel
 BuildRequires:	python-Crypto >= 1.9
-BuildRequires:	python-gnome >= 2.0.0
+BuildRequires:	python-gnome-devel >= 2.0.0
 BuildRequires:	python-gnome-extras-devel
 BuildRequires:	python-gnome-ui >= 2.0.0
 BuildRequires:	python-libxml2 >= 2.0.0
