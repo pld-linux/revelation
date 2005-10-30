@@ -1,23 +1,20 @@
-diff -urN revelation-0.4.3.orig/data/mime/revelation.desktop revelation-0.4.3/data/mime/revelation.desktop
---- revelation-0.4.3.orig/data/mime/revelation.desktop	2005-04-25 11:20:47.000000000 +0200
-+++ revelation-0.4.3/data/mime/revelation.desktop	2005-04-25 11:23:00.000000000 +0200
-@@ -1,14 +1,16 @@
- [Desktop Entry]
- Version=0.4.3
+diff -aurN revelation-0.4.5.orig/data/mime/revelation.desktop revelation-0.4.5/data/mime/revelation.desktop
+--- revelation-0.4.5.orig/data/mime/revelation.desktop	2005-08-09 12:05:16.000000000 +0200
++++ revelation-0.4.5/data/mime/revelation.desktop	2005-10-30 22:12:14.000000000 +0100
+@@ -2,13 +2,14 @@
+ Version=0.4.5
  Encoding=UTF-8
--Name=Revelation Password Manager
-+Name=Revelation
+ Name=Revelation Password Manager
++Name[pl]=Zarządca haseł Revelation
  GenericName=Password Manager
-+GenericName[pl]=Menadżer haseł
  Comment=Organize and secure your passwords
-+Comment[pl]=Zarządza hasłami i zabezpiecza je
++Comment[pl]=Organizuj i zabezpieczaj hasła
  Exec=revelation
  Icon=revelation
  Terminal=false
  Type=Application
 -Categories=GNOME;Application;Utility;
-+Categories=GTK;GNOME;Office;
++Categories=GTK;GNOME;Utility;
  StartupNotify=true
  MimeType=application/x-revelation;
 -GenericName[en_US]=Password Manager
-+# vi:encoding=utf-8
