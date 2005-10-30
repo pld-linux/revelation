@@ -1,0 +1,34 @@
+diff -aurN revelation-0.4.5.orig/configure.ac revelation-0.4.5/configure.ac
+--- revelation-0.4.5.orig/configure.ac	2005-08-23 16:21:53.000000000 +0200
++++ revelation-0.4.5/configure.ac	2005-10-30 22:15:27.000000000 +0100
+@@ -20,18 +20,18 @@
+ RVL_LIBPANELAPPLET()
+ RVL_FDO_MIME()
+ 
+-RVL_PYTHON_MODULE(Crypto, yes)
+-RVL_PYTHON_MODULE(bonobo, yes)
+-RVL_PYTHON_MODULE(bonobo.ui, yes)
+-RVL_PYTHON_MODULE(gconf, yes)
+-RVL_PYTHON_MODULE(gtk, yes)
+-RVL_PYTHON_MODULE(gtk.gdk, yes)
+-RVL_PYTHON_MODULE(gnome, yes)
+-RVL_PYTHON_MODULE(gnome.applet, yes)
+-RVL_PYTHON_MODULE(gnome.ui, yes)
+-RVL_PYTHON_MODULE(gnome.vfs, yes)
+-RVL_PYTHON_MODULE(gobject, yes)
+-RVL_PYTHON_MODULE(pango, yes)
++dnl RVL_PYTHON_MODULE(Crypto, yes)
++dnl RVL_PYTHON_MODULE(bonobo, yes)
++dnl RVL_PYTHON_MODULE(bonobo.ui, yes)
++dnl RVL_PYTHON_MODULE(gconf, yes)
++dnl RVL_PYTHON_MODULE(gtk, yes)
++dnl RVL_PYTHON_MODULE(gtk.gdk, yes)
++dnl RVL_PYTHON_MODULE(gnome, yes)
++dnl RVL_PYTHON_MODULE(gnome.applet, yes)
++dnl RVL_PYTHON_MODULE(gnome.ui, yes)
++dnl RVL_PYTHON_MODULE(gnome.vfs, yes)
++dnl RVL_PYTHON_MODULE(gobject, yes)
++dnl RVL_PYTHON_MODULE(pango, yes)
+ 
+ 
+ dnl output files
