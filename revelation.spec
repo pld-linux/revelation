@@ -1,15 +1,19 @@
 Summary:	A password manager for the GNOME 2 desktop
 Summary(pl):	Zarz±dca hase³ dla ¶rodowiska GNOME 2
 Name:		revelation
-Version:	0.4.4
-Release:	3
+Version:	0.4.5
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://oss.codepoet.no/revelation/%{name}-%{version}.tar.bz2
-# Source0-md5:	79c5af34e19c0d1eb25de15b47567060
+# Source0-md5:	f509367e8b5ab869fe00c6c3f87d2b58
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-configure.patch
 URL:		http://oss.codepoet.no/revelation/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	cracklib-devel
+BuildRequires:	libtool
 BuildRequires:	python-Crypto >= 1.9
 BuildRequires:	python-gnome-devel >= 2.0.0
 BuildRequires:	python-gnome-extras-devel
@@ -42,8 +46,13 @@ w postaci drzewa, a dane przechowuje w zakodowanych plikach XML.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__automake}
+%{__autoconf}
 %configure \
 	--disable-schemas-install \
 	--disable-desktop-update \
@@ -52,12 +61,15 @@ w postaci drzewa, a dane przechowuje w zakodowanych plikach XML.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 	
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/%{name}/*.py
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/%{name}/datahandler/*.py
+
+install data/icons/48x48/revelation.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -86,6 +98,7 @@ fi
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/revelation-applet
 %{_datadir}/%{name}
+%{_datadir}/mime/packages/revelation.xml
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/16x16/apps/*.png
 %{_iconsdir}/hicolor/24x24/apps/*.png
@@ -93,12 +106,14 @@ fi
 %{_iconsdir}/hicolor/48x48/apps/*.png
 %{_iconsdir}/hicolor/48x48/mimetypes/*.png
 %{_iconsdir}/hicolor/scalable/filesystems/*.svg
-%{_datadir}/mime/packages/revelation.xml
 %{_libdir}/bonobo/servers/GNOME_RevelationApplet.server
+%{_pixmapsdir}/*.png
+
 %dir %{py_sitedir}/%{name}
 %dir %{py_sitedir}/%{name}/datahandler
 %attr(755,root,root) %{py_sitedir}/%{name}/*.so
 %{py_sitedir}/%{name}/*.py[oc]
 %{py_sitedir}/%{name}/datahandler/*.py[co]
+
 %{_sysconfdir}/gconf/schemas/revelation.schemas
 %{_sysconfdir}/gconf/schemas/revelation-applet.schemas
