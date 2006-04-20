@@ -2,7 +2,7 @@ Summary:	A password manager for the GNOME 2 desktop
 Summary(pl):	Zarz±dca hase³ dla ¶rodowiska GNOME 2
 Name:		revelation
 Version:	0.4.7
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://oss.codepoet.no/revelation/%{name}-%{version}.tar.bz2
@@ -15,7 +15,7 @@ BuildRequires:	cracklib-devel
 BuildRequires:	libtool
 BuildRequires:	python-Crypto >= 1.9
 BuildRequires:	python-gnome-devel >= 2.6
-BuildRequires:	python-gnome-extras-devel
+BuildRequires:	python-gnome-desktop-devel
 BuildRequires:	python-gnome-ui >= 2.6
 BuildRequires:	python-libxml2 >= 2.0.0
 BuildRequires:	python-pygtk-devel >= 2.4
@@ -26,7 +26,7 @@ Requires(post,preun):	GConf2
 Requires:	hicolor-icon-theme
 Requires:	python-Crypto >= 1.9
 Requires:	python-gnome >= 2.0.0
-Requires:	python-gnome-extras-applet
+Requires:	python-gnome-desktop-applet
 Requires:	python-gnome-gconf >= 2.0.0
 Requires:	python-gnome-ui >= 2.0.0
 Requires:	python-gnome-vfs >= 2.0.0
