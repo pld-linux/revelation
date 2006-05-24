@@ -1,14 +1,13 @@
 Summary:	A password manager for the GNOME 2 desktop
 Summary(pl):	Zarz±dca hase³ dla ¶rodowiska GNOME 2
 Name:		revelation
-Version:	0.4.5
-Release:	2
+Version:	0.4.7
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://oss.codepoet.no/revelation/%{name}-%{version}.tar.bz2
-# Source0-md5:	f509367e8b5ab869fe00c6c3f87d2b58
+# Source0-md5:	d0a100914b0ffc0a09b1d4067f4307eb
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-configure.patch
 URL:		http://oss.codepoet.no/revelation/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -45,7 +44,6 @@ w postaci drzewa, a dane przechowuje w zakodowanych plikach XML.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__libtoolize}
