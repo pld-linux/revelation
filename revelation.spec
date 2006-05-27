@@ -14,22 +14,21 @@ BuildRequires:	automake
 BuildRequires:	cracklib-devel
 BuildRequires:	libtool
 BuildRequires:	python-Crypto >= 1.9
-BuildRequires:	python-gnome-devel >= 2.6
+BuildRequires:	python-gnome-devel >= 2.12.4
 BuildRequires:	python-gnome-desktop-devel
-BuildRequires:	python-gnome-ui >= 2.6
+BuildRequires:	python-gnome-ui >= 2.12.4
 BuildRequires:	python-libxml2 >= 2.0.0
-BuildRequires:	python-pygtk-devel >= 2.4
+BuildRequires:	python-pygtk-devel >= 2.12.4
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	shared-mime-info
 Requires(post,preun):	GConf2
 Requires:	hicolor-icon-theme
 Requires:	python-Crypto >= 1.9
-Requires:	python-gnome >= 2.0.0
-Requires:	python-gnome-desktop-applet
-Requires:	python-gnome-gconf >= 2.0.0
-Requires:	python-gnome-ui >= 2.0.0
-Requires:	python-gnome-vfs >= 2.0.0
+Requires:	python-gnome >= 2.12.4
+Requires:	python-gnome-desktop-applet >= 2.14.0
+Requires:	python-gnome-gconf >= 2.12.4
+Requires:	python-gnome-vfs >= 2.12.4
 Requires:	python-libxml2 >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
