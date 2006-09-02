@@ -30,6 +30,7 @@ Requires:	python-gnome-desktop-applet >= 2.14.0
 Requires:	python-gnome-gconf >= 2.12.4
 Requires:	python-gnome-vfs >= 2.12.4
 Requires:	python-libxml2 >= 2.0.0
+Requires:	python-PyXML
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
