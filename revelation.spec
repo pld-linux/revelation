@@ -1,5 +1,5 @@
 Summary:	A password manager for the GNOME 2 desktop
-Summary(pl):	Zarz±dca hase³ dla ¶rodowiska GNOME 2
+Summary(pl.UTF-8):   ZarzÄ…dca haseÅ‚ dla Å›rodowiska GNOME 2
 Name:		revelation
 Version:	0.4.7
 Release:	4
@@ -38,8 +38,8 @@ Revelation is a password manager for the GNOME 2 desktop. It organizes
 accounts in a tree structure, and stores them as AES-encrypted XML
 files.
 
-%description -l pl
-Revelation jest zarz±dc± hase³ dla ¶rodowiska GNOME 2. Wy¶wietla konta
+%description -l pl.UTF-8
+Revelation jest zarzÄ…dcÄ… haseÅ‚ dla Å›rodowiska GNOME 2. WyÅ›wietla konta
 w postaci drzewa, a dane przechowuje w zakodowanych plikach XML.
 
 %prep
