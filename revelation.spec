@@ -1,5 +1,5 @@
 Summary:	A password manager for the GNOME 2 desktop
-Summary(pl.UTF-8):   Zarządca haseł dla środowiska GNOME 2
+Summary(pl.UTF-8):	Zarządca haseł dla środowiska GNOME 2
 Name:		revelation
 Version:	0.4.7
 Release:	4
