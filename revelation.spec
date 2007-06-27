@@ -16,7 +16,7 @@ BuildRequires:	libtool
 BuildRequires:	python-Crypto >= 1.9
 BuildRequires:	python-gnome-devel >= 2.12.4
 BuildRequires:	python-gnome-desktop-devel
-BuildRequires:  python-gnome-extras-devel >= 2.0
+BuildRequires:	python-gnome-extras-devel >= 2.0
 BuildRequires:	python-gnome-ui >= 2.12.4
 BuildRequires:	python-libxml2 >= 2.0.0
 BuildRequires:	python-pygtk-devel >= 2.12.4
