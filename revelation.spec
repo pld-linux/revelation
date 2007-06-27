@@ -1,12 +1,12 @@
 Summary:	A password manager for the GNOME 2 desktop
 Summary(pl.UTF-8):	Zarządca haseł dla środowiska GNOME 2
 Name:		revelation
-Version:	0.4.7
-Release:	4
+Version:	0.4.11
+Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	ftp://oss.codepoet.no/revelation/%{name}-%{version}.tar.bz2
-# Source0-md5:	d0a100914b0ffc0a09b1d4067f4307eb
+# Source0-md5:	e2db4a2f00f59b18798d4453c778129f
 Patch0:		%{name}-desktop.patch
 URL:		http://oss.codepoet.no/revelation/
 BuildRequires:	autoconf
@@ -16,6 +16,7 @@ BuildRequires:	libtool
 BuildRequires:	python-Crypto >= 1.9
 BuildRequires:	python-gnome-devel >= 2.12.4
 BuildRequires:	python-gnome-desktop-devel
+BuildRequires:  python-gnome-extras-devel >= 2.0
 BuildRequires:	python-gnome-ui >= 2.12.4
 BuildRequires:	python-libxml2 >= 2.0.0
 BuildRequires:	python-pygtk-devel >= 2.12.4
@@ -69,6 +70,8 @@ rm -f $RPM_BUILD_ROOT%{py_sitedir}/%{name}/datahandler/*.py
 
 install data/icons/48x48/revelation.png $RPM_BUILD_ROOT%{_pixmapsdir}
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -90,7 +93,7 @@ if [ $1 = 0 ]; then
 	/usr/bin/update-mime-database %{_datadir}/mime
 fi
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/*
@@ -103,15 +106,16 @@ fi
 %{_iconsdir}/hicolor/32x32/apps/*.png
 %{_iconsdir}/hicolor/48x48/apps/*.png
 %{_iconsdir}/hicolor/48x48/mimetypes/*.png
-%{_iconsdir}/hicolor/scalable/filesystems/*.svg
 %{_libdir}/bonobo/servers/GNOME_RevelationApplet.server
 %{_pixmapsdir}/*.png
 
 %dir %{py_sitedir}/%{name}
 %dir %{py_sitedir}/%{name}/datahandler
+%dir %{py_sitedir}/%{name}/bundle
 %attr(755,root,root) %{py_sitedir}/%{name}/*.so
 %{py_sitedir}/%{name}/*.py[oc]
 %{py_sitedir}/%{name}/datahandler/*.py[co]
+%{py_sitedir}/%{name}/bundle/*.py[co]
 
 %{_sysconfdir}/gconf/schemas/revelation.schemas
 %{_sysconfdir}/gconf/schemas/revelation-applet.schemas
