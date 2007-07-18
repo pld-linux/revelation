@@ -1,0 +1,11 @@
+--- ./configure.ac.org	2007-01-16 10:39:13.000000000 +0000
++++ ./configure.ac	2007-07-18 20:38:01.000000000 +0000
+@@ -8,7 +8,7 @@
+ AC_PREREQ(2.53)
+ AC_INIT(src/revelation.in)
+ AM_INIT_AUTOMAKE(revelation, 0.4.11)
+-ALL_LINGUAS="cs de fr sv zh"
++ALL_LINGUAS="cs de fr sv zh_CN"
+ 
+ dnl check for dependencies
+ AC_PROG_CC()
