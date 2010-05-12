@@ -18,7 +18,7 @@ diff -urN revelation-0.4.11/data/mime/revelation.desktop.in revelation-0.4.11.ne
  Terminal=false
  Type=Application
 -Categories=GNOME;Application;Utility;
-+Categories=GTK;GNOME;Utility;
++Categories=GTK;GNOME;Utility;Security;
  StartupNotify=true
  MimeType=application/x-revelation;
  
