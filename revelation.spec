@@ -10,29 +10,34 @@ Source0:	ftp://oss.codepoet.no/revelation/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-zh_CN.patch
 URL:		http://oss.codepoet.no/revelation/
+BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	cracklib-devel
+BuildRequires:	gettext-devel
+BuildRequires:	intltool
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRequires:	python-Crypto >= 1.9
-BuildRequires:	python-gnome-devel >= 2.12.4
 BuildRequires:	python-gnome-desktop-devel
+BuildRequires:	python-gnome-devel >= 2.12.4
 BuildRequires:	python-gnome-extras-devel >= 2.0
 BuildRequires:	python-gnome-ui >= 2.12.4
 BuildRequires:	python-libxml2 >= 2.0.0
 BuildRequires:	python-pygtk-devel >= 2.12.4
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	shared-mime-info
 Requires(post,preun):	GConf2
 Requires:	hicolor-icon-theme
 Requires:	python-Crypto >= 1.9
+Requires:	python-PyXML
 Requires:	python-gnome >= 2.12.4
 Requires:	python-gnome-desktop-applet >= 2.14.0
 Requires:	python-gnome-gconf >= 2.12.4
 Requires:	python-gnome-vfs >= 2.12.4
 Requires:	python-libxml2 >= 2.0.0
-Requires:	python-PyXML
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
