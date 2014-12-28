@@ -14,7 +14,7 @@ BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	cracklib-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
