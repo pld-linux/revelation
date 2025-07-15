@@ -51,8 +51,8 @@ w postaci drzewa, a dane przechowuje w zakodowanych plikach XML.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 mv po/zh.po po/zh_CN.po
 
 %build
